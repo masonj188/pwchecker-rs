@@ -3,6 +3,10 @@ name = "pwchecker-rs"
 version = "0.1.0"
 authors = ["Mason Johnson <mason@invariant.dev>"]
 edition = "2018"
+license-file = "LICENSE.md"
+description = "A library that consumes the pwned passwords API from haveibeenpwned.com"
+keywords = ["haveibeenpwned", "passwords", "breach"]
+repository = "https://github.com/masonj188/pwchecker-rs/"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
