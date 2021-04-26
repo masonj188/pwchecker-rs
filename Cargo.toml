@@ -1,6 +1,6 @@
 [package]
 name = "pwchecker-rs"
-version = "0.1.4"
+version = "0.1.5"
 authors = ["Mason Johnson <mason@invariant.dev>"]
 edition = "2018"
 license-file = "LICENSE.md"
