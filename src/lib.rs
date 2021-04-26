@@ -22,6 +22,9 @@ use crypto::digest::Digest;
 use crypto::sha1::Sha1;
 use reqwest::blocking;
 
+// haveibeenpwned api url specifically for the type of request
+// we are making, which reduces risk when sending a password
+// that may not be pwned.
 const API_URL: &str = "https://api.pwnedpasswords.com/range/";
 
 /// Passwd contains two fields, the password checked for pwnage and the number of times
@@ -32,6 +35,8 @@ pub struct Passwd {
     pub times_pwned: i32,
 }
 
+/// check_for_pwnage checks the given password against the haveibeenpwned breach database.
+///
 /// # Examples
 /// ```
 /// # use std::error::Error;
@@ -71,6 +76,7 @@ pub fn check_for_pwnage(pass: &str) -> Result<Passwd, Box<dyn Error>> {
     })
 }
 
+// Returns the sha1 hash of the password.
 fn get_hash(pass: &str) -> String {
     let mut hasher = Sha1::new();
     hasher.input_str(pass);
