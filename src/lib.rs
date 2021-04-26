@@ -5,9 +5,15 @@
 //!
 //! # Examples
 //! ```
-//! let res = pwchecker_rs::check_for_pwnage("helloworld");
+//! # use std::error::Error;
+//! #
+//! # fn main() -> Result<(), Box<dyn Error>> {
+//! let res = pwchecker_rs::check_for_pwnage("helloworld")?;
 //!
-//! assert!(res.unwrap().times_pwned > 0);
+//! assert!(res.times_pwned > 0);
+//! #
+//! #   Ok(())
+//! # }
 //! ```
 
 use std::error::Error;
@@ -26,13 +32,18 @@ pub struct Passwd {
     pub times_pwned: i32,
 }
 
-/// Checks given password for a breach according to haveibeenpwned.com.
-///
 /// # Examples
 /// ```
-/// let res = pwchecker_rs::check_for_pwnage("helloworld");
+/// # use std::error::Error;
+/// #
+/// # fn main() -> Result<(), Box<dyn Error>> {
+/// let res = pwchecker_rs::check_for_pwnage("helloworld")?;
 ///
-/// assert!(res.unwrap().times_pwned > 0);
+/// assert!(res.times_pwned > 0);
+/// #
+/// #   Ok(())
+/// # }
+/// ```
 pub fn check_for_pwnage(pass: &str) -> Result<Passwd, Box<dyn Error>> {
     if pass.len() <= 0 {
         return Err("Password can't be length 0")?;
