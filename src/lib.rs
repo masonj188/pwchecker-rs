@@ -1,4 +1,4 @@
-//! pwcehcker_rs
+//! pwchecker_rs
 //!
 //! pwchecker_rs allows you to conveniently query the [haveibeenpwned.com](https://haveibeenpwned.com)
 //! api so you can check whether or not a password has been involved in a data breach.
